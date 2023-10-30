@@ -1,0 +1,21 @@
+doctrine:
+  dbal:
+    default_connection: default
+    connections:
+      default:
+        url: '%env(CONNECTION_APP)%'
+        wrapper_class: 'App\Extensions\Connection'
+  orm:
+    auto_generate_proxy_classes: true
+    default_entity_manager: app
+    entity_managers:
+      app:
+        connection: default
+        report_fields_where_declared: true
+        mappings:
+          App:
+            type: attribute
+            is_bundle: false
+            dir: '%kernel.project_dir%/src/Entity'
+            prefix: 'App\Entity'
+            alias: App

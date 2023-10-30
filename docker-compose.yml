@@ -1,0 +1,22 @@
+version: '3'
+services:
+  php:
+    build:
+      context: .
+      dockerfile: ./dockerCfg/php.dockerfile
+    volumes:
+      - ./source:/app
+    links:
+      - masterDb
+  masterDb:
+    image: mariadb:latest
+    ports:
+      - "33060:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: 'froza'
+      MYSQL_USER: 'froza'
+      MYSQL_PASSWORD: 'froza'
+      MYSQL_DATABASE: 'froza'
+    volumes:
+      - ./mysql:/var/lib/mysql
+

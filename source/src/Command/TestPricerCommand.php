@@ -36,7 +36,7 @@ class TestPricerCommand extends Command
         if ($input->getOption('clear')) {
             return $this->clearTable($output);
         }
-        $fileName = $input->getOption('clear') ? '/app/share/csv/FRO2-big.csv' : '/app/share/csv/FRO2.csv';
+        $fileName = $input->getOption('big') ? '/app/share/csv/FRO2-big.csv' : '/app/share/csv/FRO2.csv';
 
         $this->bus->dispatch(
             new ParserMessage(
